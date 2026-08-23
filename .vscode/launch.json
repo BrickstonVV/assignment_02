@@ -5,6 +5,8 @@
     "version": "0.2.0",
     "configurations": [
         {
+            // Runs the open file with no command-line arguments. For a report,
+            // that means the fixed 11-row sample dataset.
             "name": "Python Debugger: Current File",
             "type": "debugpy",
             "request": "launch",
@@ -12,12 +14,42 @@
             "console": "integratedTerminal"
         },
         {
+            // Same, but prompts for a dataset seed and passes it to the report as
+            // sys.argv[1] — the equivalent of `python code/main_finance_report.py 42`.
+            "name": "Python Debugger: Current File (with dataset seed)",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "args": ["${input:seed}"],
+            "console": "integratedTerminal"
+        },
+        {
             "name": "Streamlit Run: Current File",
             "type": "debugpy",
             "request": "launch",
             "module": "streamlit",
+            "env": {
+                "STREAMLIT_SERVER_PORT": "28502"
+            },
             "args": ["run", "${file}"],
             "console": "integratedTerminal"
+        },
+        {
+            "name": "FastAPI: Current File",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "uvicorn",
+            "cwd": "${fileDirname}",
+            "args": ["${fileBasenameNoExtension}:app", "--host", "0.0.0.0", "--port", "28000"],
+            "console": "integratedTerminal"
+        }
+    ],
+    "inputs": [
+        {
+            "id": "seed",
+            "type": "promptString",
+            "description": "Dataset seed — a whole number, e.g. 42. For the 11-row sample data, use 'Python Debugger: Current File' instead.",
+            "default": "42"
         }
     ]
 }
