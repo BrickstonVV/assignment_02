@@ -19,31 +19,39 @@ Before running:  pip install -r requirements.txt
 
 import sys
 
-# TODO: import the functions you need from the sales_pipeline package.
-#       Import the names you need, not the whole module.
+# --- The report ------------------------------------------------------------------
+#
+# Less scaffolding this time. The steps are described, but which function does each
+# job — and what to call the result — is now yours to work out. Everything you need
+# is in the package's public API; if a step sounds like arithmetic, the function
+# already exists in transform.py.
+#
+# `main_finance_report.py` is your worked example for anything structural.
+
+# TODO: import what this report needs from the package.
 
 
-# An optional command-line argument picks which dataset to report on. A missing
-# argument — or a blank one, which is what VS Code sends when you clear the seed
-# prompt — means "use the sample data". See README Reference #7.
-# TODO: set `seed` to None, or to int(sys.argv[1]) when a non-blank one was given.
+# TODO: handle the optional dataset seed. This is the same three lines the Finance
+#       report has — read them there, then write them here yourself.
 
 
-# TODO: print the report header, exactly:  === MARKETING: Revenue by Item ===
-#       followed by a blank line.
+# TODO: print the header, exactly:   === MARKETING: Revenue by Item ===
+#       then a blank line.
 
 
 # 1. Extract — the same source Finance uses, called the same way.
 # TODO
 
 
-# 2. Transform — clean, then roll the rows up to one entry per item, then find the
-#    top entry twice: once by "revenue" and once by "units_sold".
+# 2. Transform — clean the rows, roll them up to one entry per item, then find the
+#    best entry twice: once by "revenue", once by "units_sold". They are usually
+#    different products, which is the whole reason Marketing asked.
 # TODO
 
 
-# 3. Load — the item table, a blank line, then the two headline lines. Line them up
-#    so the values start in the same column:
+# 3. Load — the item table, a blank line, then two headline lines. Match this
+#    layout exactly, including the padding that lines the two values up:
+#
 #        Top seller by revenue: Gizmo Pro ($1,200.00)
 #        Top seller by units:   Widget C (15 units)
 # TODO

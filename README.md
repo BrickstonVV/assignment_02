@@ -132,6 +132,21 @@ raise its way out of your function and kill the run.
 Work in order. Each step tells you *what* to do; when you need the *mechanics*, follow
 the link to the matching **Reference — How do I…?** entry below.
 
+### The training wheels come off
+
+The three reports do the same job, so they are deliberately **not** supported equally.
+Open each file and you'll find a different amount of help waiting:
+
+| report | what the file gives you |
+| --- | --- |
+| `main_finance_report.py` | the seed-handling code written out, and a TODO per line naming the exact function to call and what to store the result in |
+| `main_marketing_report.py` | the three steps described in words — which function does each job is yours to work out |
+| `main_daily_report.py` | the goal, and nothing else |
+
+That is on purpose. By the third one you should be reaching for the two finished reports
+beside it rather than for a list of instructions — which is exactly what you'll do on the
+job, where the "instructions" are always just the code someone wrote last month.
+
 ### Build order at a glance
 
 Write things in this order and watch the Testing panel go green a row at a time. Nothing

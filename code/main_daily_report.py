@@ -22,21 +22,20 @@ Before running:  pip install -r requirements.txt
     python code/main_daily_report.py 42     # the generated data for seed 42
 """
 
-import sys
-
-# TODO: import the functions you need from the sales_pipeline package.
-#       Import the names you need, not the whole module.
-
-
-# An optional command-line argument picks which dataset to report on. A missing
-# argument — or a blank one, which is what VS Code sends when you clear the seed
-# prompt — means "use the sample data". See README Reference #7.
-# TODO: set `seed` to None, or to int(sys.argv[1]) when a non-blank one was given.
-
-
-# You are on your own for this one. main_finance_report.py and
-# main_marketing_report.py are your worked examples: same three-step shape, same
-# rule that no arithmetic or formatting belongs in a report.
+# --- The report ------------------------------------------------------------------
 #
-# README Step 9 shows the exact output your report must produce.
-# TODO: write the report.
+# No scaffolding. You have written two of these now, and this one asks the same
+# three questions of the same data: extract it, transform it, show it.
+#
+# What you have to work out for yourself:
+#
+#   - which package functions this report needs, and in what order
+#   - one function that does not exist yet — see README Step 9
+#   - the same seed handling the other two reports do
+#
+# README Step 9 shows the exact output your report must produce. The integration
+# tests check it line for line, so match it character for character.
+#
+# The rules have not changed: no arithmetic and no formatting logic in a report. If
+# you need a calculation this file cannot get by calling the package, the
+# calculation belongs in sales_pipeline/transform.py.

@@ -9,6 +9,7 @@ Every report is run against the fixed sample data and against generated datasets
 hardcoded block of text.
 """
 
+import ast
 import os
 
 from helpers import repo_path, run_python_script
@@ -38,21 +39,34 @@ def test_package_directory_structure():
 def test_reports_use_the_package():
     """The reports consume the package instead of re-implementing it.
 
-    Reads each report's source and checks two things: that it imports from
-    `sales_pipeline`, and that it does *not* import tabulate — building tables is
-    display.py's job. This is the only test that can catch a report which pasted
-    the logic in directly, because a copy-paste report still prints the right
-    numbers and still passes every unit test.
+    Checks two things about each report: that it imports from `sales_pipeline`,
+    and that it does *not* import tabulate — building tables is display.py's job.
+    This is the only test that can catch a report which pasted the logic in
+    directly, because a copy-paste report still prints the right numbers and still
+    passes every unit test.
+
+    It reads the *parsed* imports rather than searching the text, so a mention of
+    `from sales_pipeline import ...` in a comment or docstring does not count as
+    having written one, and the word "tabulate" in a comment is not mistaken for
+    importing it.
     """
     for script in ALL_REPORTS:
         with open(repo_path(script)) as source_file:
             source = source_file.read()
 
-        assert "from sales_pipeline import" in source, (
+        imported_from = set()
+        for node in ast.walk(ast.parse(source, filename=script)):
+            if isinstance(node, ast.ImportFrom) and node.module:
+                imported_from.add(node.module.split(".")[0])
+            elif isinstance(node, ast.Import):
+                for alias in node.names:
+                    imported_from.add(alias.name.split(".")[0])
+
+        assert "sales_pipeline" in imported_from, (
             f"{script} should import what it needs from the package, e.g. "
             "`from sales_pipeline import get_raw_sales_data, clean_sales_data`"
         )
-        assert "tabulate" not in source, (
+        assert "tabulate" not in imported_from, (
             f"{script} should not import tabulate — table formatting belongs in "
             "sales_pipeline/display.py, not in a report."
         )
