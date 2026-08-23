@@ -85,11 +85,72 @@ If you haven't done the one-time course setup yet:
 👉 https://mafudge.github.io/ist356/0-intro/0-0-setup.html
 
 This assignment runs inside the pre-built course dev container
-(`mafudge/ist356:latest`). Open it in **GitHub Codespaces** or locally with the
-**Dev Containers** extension.
+(`mafudge/ist356:latest`), the same one Assignment 01 used.
 
 > **No computer setup? Use GitHub Codespaces** to run everything in your browser — you
 > only need a GitHub account.
+
+---
+
+## Prep — Open the assignment
+
+Same as Assignment 01: **first fork, then** pick **one** of two ways to open your fork
+in the course environment.
+
+1. **Fork this repository.** At the top-right of this repo's GitHub page, click
+   **Fork**. This makes your own personal copy under your GitHub account. You submit
+   and are graded on *your fork* — work done anywhere else cannot be graded.
+
+Now choose **Option A** (in the browser — nothing to install) **or** **Option B** (on
+your own computer). Everything in the Walkthrough works the same either way.
+
+### Option A — GitHub Codespaces (in the browser) ⭐ easiest
+
+A Codespace runs the exact same course container **in the cloud** and opens VS Code in
+your browser — nothing to install, so this works on a Chromebook, a lab machine, or a
+locked-down laptop.
+
+1. Go to **your fork's** page on GitHub. Click the green **Code** button, then the
+   **Codespaces** tab.
+2. Click **Create codespace on main**. The container builds (the first time takes a few
+   minutes) and installs this assignment's dependencies for you.
+3. VS Code opens in your browser, already **inside the course container**, with your
+   fork's code loaded and Git signed in. You can skip cloning — you're ready.
+
+> Reopen an existing Codespace anytime from **https://github.com/codespaces** (or the
+> **Code → Codespaces** tab on your fork). Codespaces have monthly free hours, so
+> **stop** yours when you're done: `github.com/codespaces` → **⋯ → Stop codespace**.
+
+### Option B — Your own computer (local dev container)
+
+Requires Docker Desktop and VS Code from the [course setup](https://mafudge.github.io/ist356/0-intro/0-0-setup.html).
+
+1. **Clone your fork.** On your fork's page, click the green **Code** button and copy
+   the HTTPS URL, then clone it. Easiest way: in VS Code press `Ctrl+Shift+P` →
+   **Git: Clone**, paste the URL, and pick a folder. Or from a terminal:
+
+   ```sh
+   git clone https://github.com/YOUR-GITHUB-USERNAME/assignment_02.git
+   ```
+
+   > Make sure the URL has **your** username in it, not `ist356`. If it doesn't, you
+   > cloned the wrong repo — and nothing you commit will reach your grade.
+
+2. **Open the folder and reopen in the container.** Choose **File → Open Folder** and
+   select the cloned `assignment_02` folder. VS Code detects the dev container and pops
+   up a notification — click **Reopen in Container**. (If you miss it:
+   `Ctrl+Shift+P` → **Dev Containers: Reopen in Container**.) The first build takes a
+   few minutes; after that you're working *inside* the course environment.
+
+### Check you're ready
+
+Open the **Testing** panel (View → Testing) and run the tests
+([Reference #5](#5-how-do-i-run-automated-tests)). You should see **3 passing and 24
+failing** — that is exactly right. The three that pass cover `extract.py`, which is
+written for you; the rest fail because you haven't written anything yet.
+
+If instead you see *no tests at all*, that is a different problem — see the note in
+[Step 5](#step-5--declare-the-public-api-and-write-the-finance-report).
 
 ---
 
