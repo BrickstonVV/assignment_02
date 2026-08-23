@@ -14,19 +14,14 @@ The each assignment will have a common layout.
 - `code/solution` folder contains the solution to the assignment, for reference.
 - `data` data files folder
 - `tests` folder contains code to test our application
-- `requirements.txt` contains the packages we need to `pip install` to execute the application code
+- `.devcontainer` folder configures the pre-built development container (`mafudge/ist356:latest`), which already has all required packages installed
 - `readme.md` contains these instructions
 - `.vscode` folder contains VS Code setup configurations for running / debugging the application and tests.
 -  `reflection.md` is where you submit your reflection, comments on what you learned, things that confuse you, etc.
 
 ### Prerequisites 
 
-Before starting this assignment you must:
-
-Install the assignment python requirements:
-
-1. From VS Code, open a terminal: Menu => Terminal => New Terminal
-2. In the terminal, type and enter: `pip install -r requirements.txt`
+This assignment runs inside a pre-configured development container (`mafudge/ist356:latest`) that already has all required Python packages installed. There is nothing to install manually — just open the assignment in the dev container (GitHub Codespaces, or the **Dev Containers** extension in VS Code) and you are ready to go.
 
 
 ### Running Tests
@@ -70,19 +65,3 @@ program.py
 - Write your reflection in `reflection.md`
 - Commit your changes: VS Code -> menu -> View -> Source Control -> Enter Commit message -> Click "Commit"
 - Push your changes: VS Code -> menu -> View -> Source Control -> Click "Sync Changes"
-
-## Grading 
-
-🤖 Beep, Boop. This assignment is bot-graded! When you push your code to GitHub, my graderbot is notified there is something to grade. The bot then takes the following actions:
-
-1. Your assignment repository is cloned from Github
-2. The bot checks your code and commits according to guidelines outlined in `assignment-criteria.json` (it runs tests, checking code correctness, etc.)
-3. The bot reads your `reflection.md` and provides areas for improvement (based on the instructions in the file).
-4. A grade is assigned by the bot. Feedback is generated including justification for the grade given.
-5. The grade and feedback are posted to Blackboard.
-
-You are welcome to review the bot's feedback and improve your submission as often as you like.
-
-**NOTE: ** Consider this an experiment in the future of education. The graderbot is an AI teaching assistant. Like a human grader, it will make mistakes. Please feel free to question the bots' feedback! Do not feel as if you should gamify the bot. Talk to me! Like a person, we must teach it how to do its job effectively. 
-
-
