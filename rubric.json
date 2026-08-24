@@ -12,6 +12,7 @@
       "metric": "ratio",
       "levels": [
         { "id": "all", "label": "All unit tests pass", "points": 3, "min": 1 },
+        { "id": "most", "label": "More than 1/2 of the unit tests pass", "points": 2, "min": 0.5 },
         { "id": "some", "label": "At least one unit test passes", "points": 1, "min": 0.01 },
         { "id": "none", "label": "No unit tests pass", "points": 0, "min": 0 }
       ]
@@ -25,6 +26,7 @@
       "metric": "ratio",
       "levels": [
         { "id": "all", "label": "All integration tests pass", "points": 3, "min": 1 },
+        { "id": "most", "label": "More than 1/2 of the integration tests pass", "points": 2, "min": 0.5 },
         { "id": "some", "label": "At least one integration test passes", "points": 1, "min": 0.01 },
         { "id": "none", "label": "No integration tests pass", "points": 0, "min": 0 }
       ]
