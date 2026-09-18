@@ -4,3 +4,10 @@ See reflection.md for what makes a good reflection — be specific, use the
 terminology from this assignment (package, module, ETL, coercion, public API,
 relative import, accumulator, group by, unit vs. integration test), and make it
 actionable.
+
+This assignment taught me how to build a package instead of one long script. 
+A package is a folder with an __init__.py inside it. My package, sales_pipeline, 
+held three modules, and each one did one job in the ETL process: extract.py got the data, 
+transform.py cleaned it and did the math, and display.py printed it. Because these were 
+separate, all three reports could use the same package. Adding the Operations report only 
+needed one new function, not a whole new file.
